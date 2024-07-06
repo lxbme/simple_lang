@@ -15,9 +15,9 @@ jobs:
           - os: ubuntu-latest
             cc: gcc
             cxx: g++
-          - os: ubuntu-latest
-            cc: clang
-            cxx: clang++
+          # - os: ubuntu-latest
+          #   cc: clang
+          #   cxx: clang++
           - os: windows-latest
             cc: cl
             cxx: cl

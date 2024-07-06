@@ -119,6 +119,13 @@ build LangKernel/CMakeFiles/simple_lang_lib.dir/misc.c.o: C_COMPILER__simple_lan
   OBJECT_DIR = LangKernel/CMakeFiles/simple_lang_lib.dir
   OBJECT_FILE_DIR = LangKernel/CMakeFiles/simple_lang_lib.dir
 
+build LangKernel/CMakeFiles/simple_lang_lib.dir/utils.c.o: C_COMPILER__simple_lang_lib_unscanned_Debug /home/lixiaobai/Projects/cpp_project/simple_lang/LangKernel/utils.c || cmake_object_order_depends_target_simple_lang_lib
+  DEP_FILE = LangKernel/CMakeFiles/simple_lang_lib.dir/utils.c.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I/home/lixiaobai/Projects/cpp_project/simple_lang/Include
+  OBJECT_DIR = LangKernel/CMakeFiles/simple_lang_lib.dir
+  OBJECT_FILE_DIR = LangKernel/CMakeFiles/simple_lang_lib.dir
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target simple_lang_lib
@@ -127,7 +134,7 @@ build LangKernel/CMakeFiles/simple_lang_lib.dir/misc.c.o: C_COMPILER__simple_lan
 #############################################
 # Link the static library LangKernel/libsimple_lang_lib.a
 
-build LangKernel/libsimple_lang_lib.a: C_STATIC_LIBRARY_LINKER__simple_lang_lib_Debug LangKernel/CMakeFiles/simple_lang_lib.dir/lexer.c.o LangKernel/CMakeFiles/simple_lang_lib.dir/parser.c.o LangKernel/CMakeFiles/simple_lang_lib.dir/ast.c.o LangKernel/CMakeFiles/simple_lang_lib.dir/vm.c.o LangKernel/CMakeFiles/simple_lang_lib.dir/compiler.c.o LangKernel/CMakeFiles/simple_lang_lib.dir/misc.c.o
+build LangKernel/libsimple_lang_lib.a: C_STATIC_LIBRARY_LINKER__simple_lang_lib_Debug LangKernel/CMakeFiles/simple_lang_lib.dir/lexer.c.o LangKernel/CMakeFiles/simple_lang_lib.dir/parser.c.o LangKernel/CMakeFiles/simple_lang_lib.dir/ast.c.o LangKernel/CMakeFiles/simple_lang_lib.dir/vm.c.o LangKernel/CMakeFiles/simple_lang_lib.dir/compiler.c.o LangKernel/CMakeFiles/simple_lang_lib.dir/misc.c.o LangKernel/CMakeFiles/simple_lang_lib.dir/utils.c.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = LangKernel/CMakeFiles/simple_lang_lib.dir
   POST_BUILD = :

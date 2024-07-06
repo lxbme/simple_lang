@@ -5,6 +5,8 @@ set(SRC_FILES
         vm.c
         compiler.c
         misc.c
+        utils.c
+        ../Include/utils.h
 )
 
 add_library(simple_lang_lib ${SRC_FILES})

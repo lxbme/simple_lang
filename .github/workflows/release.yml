@@ -43,14 +43,21 @@ jobs:
     - name: Build
       run: cmake --build build --config Release
 
-    - name: Archive the build
+    - name: Archive the build (Linux)
+      if: matrix.os == 'ubuntu-latest'
       run: |
-        if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
-          tar -czvf build/linux_${{ matrix.cc }}.tar.gz -C build .
-        fi
-        if [ "${{ matrix.os }}" == "windows-latest" ]; then
-          powershell Compress-Archive -Path build\* -DestinationPath build\windows_${{ matrix.cc }}.zip
-        fi
+        mkdir -p temp_build
+        cp -r build/* temp_build/
+        tar -czvf build/linux_${{ matrix.cc }}.tar.gz -C temp_build .
+      shell: bash
+
+    - name: Archive the build (Windows)
+      if: matrix.os == 'windows-latest'
+      run: |
+        mkdir temp_build
+        Copy-Item -Recurse -Path build\* -Destination temp_build
+        Compress-Archive -Path temp_build\* -DestinationPath build\windows_${{ matrix.cc }}.zip
+      shell: powershell
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
@@ -119,3 +126,4 @@ jobs:
         asset_path: ./builds/windows_cl.zip
         asset_name: windows_cl.zip
         asset_content_type: application/zip
+

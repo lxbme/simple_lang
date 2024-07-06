@@ -76,11 +76,11 @@ jobs:
       with:
         name: build-ubuntu-latest-gcc
         path: ./builds
-    - name: Download build artifacts
-      uses: actions/download-artifact@v3
-      with:
-        name: build-ubuntu-latest-clang
-        path: ./builds
+    # - name: Download build artifacts
+    #   uses: actions/download-artifact@v3
+    #   with:
+    #     name: build-ubuntu-latest-clang
+    #     path: ./builds
     - name: Download build artifacts
       uses: actions/download-artifact@v3
       with:
@@ -93,7 +93,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: v${{ github.run_number }}
-        release_name: Release v${{ github.run_number }}
+        release_name: Auto Release v${{ github.run_number }}
         draft: false
         prerelease: false
 

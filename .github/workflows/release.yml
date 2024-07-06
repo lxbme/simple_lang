@@ -111,15 +111,15 @@ jobs:
         asset_name: linux_gcc.tar.gz
         asset_content_type: application/gzip
 
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./builds/linux_clang.tar.gz
-        asset_name: linux_clang.tar.gz
-        asset_content_type: application/gzip
+    # - name: Upload Release Asset
+    #   uses: actions/upload-release-asset@v1
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   with:
+    #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+    #     asset_path: ./builds/linux_clang.tar.gz
+    #     asset_name: linux_clang.tar.gz
+    #     asset_content_type: application/gzip
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1

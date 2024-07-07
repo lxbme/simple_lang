@@ -89,12 +89,15 @@ eval(Frame * frame, Instruction* instructions, int instr_count)
                 frame->stack[frame->sp - 1] = frame->stack[frame->sp - 1] - frame->stack[frame->sp];
                 frame->sp--;
                 break;
+            case STK_DIS:
+                printf("%d\n", frame->stack[frame->sp]);
+                break;
         }
     }
 
-    for (int i = 0; i < frame->var_count; i++) {
-        printf("%s = %d\n", frame->var_names[i], frame->variables[i]);
-    }
+//    for (int i = 0; i < frame->var_count; i++) {
+//        printf("%s = %d\n", frame->var_names[i], frame->variables[i]);
+//    }
 
 //    for (int i = 1; i < instr_count; i++) {
 //        free_instruction(&instructions[i]);

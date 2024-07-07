@@ -52,6 +52,10 @@ tokenize(const char* source)
                 tokens[index] = *new_token(TOKEN_LET, indent);
                 index++;
             }
+            else if (strcmp(indent, "dis") == 0) {
+                tokens[index] = *new_token(TOKEN_DIS, indent);
+                index++;
+            }
             else {
                 tokens[index] = *new_token(TOKEN_IDENTIFIER, indent);
                 index++;

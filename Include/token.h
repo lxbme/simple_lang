@@ -9,7 +9,8 @@ typedef enum {
     TOKEN_MINUS,
     TOKEN_SEMICOLON,
     TOKEN_LET,
-    TOKEN_EOF
+    TOKEN_EOF,
+    TOKEN_DIS   //display
 } TokenType;
 
 typedef struct {

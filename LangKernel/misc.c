@@ -12,6 +12,7 @@ get_opcode_name(OpCode opcode) {
         CASE_STR(STORE_NAME)
         CASE_STR(BINARY_SUB)
         CASE_STR(BINARY_ADD)
+        CASE_STR(STK_DIS)
         default:
             return "UNKNOWN_OPCODE";
     }
@@ -29,6 +30,7 @@ get_token_type_name(TokenType tokenType)
         CASE_STR(TOKEN_SEMICOLON)
         CASE_STR(TOKEN_LET)
         CASE_STR(TOKEN_EOF)
+        CASE_STR(TOKEN_DIS)
         default:
             return "UNKNOWN_TOKEN";
     }
@@ -40,7 +42,12 @@ show_opcode(Instruction * instruction, int instr_count)
 {
     printf("bytecode:\n");
     for (int i = 0; i < instr_count; i++) {
-        printf("%-15s \t (%s)\n",get_opcode_name(instruction[i].opcode), instruction[i].operand);
+        if (instruction[i].operand) {
+            printf("%-15s \t (%s)\n",get_opcode_name(instruction[i].opcode), instruction[i].operand);
+        }
+        else {
+            printf("%-15s \t *\n",get_opcode_name(instruction[i].opcode));
+        }
     }
     printf("\n");
 }
@@ -83,6 +90,9 @@ print_ast(ASTNode* node, int level) {
             break;
         case TOKEN_MINUS:
             printf("MINUS\n");
+            break;
+        case TOKEN_DIS:
+            printf("DISPLAY\n");
             break;
         default:
             printf("UNKNOWN\n");

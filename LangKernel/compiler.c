@@ -54,6 +54,10 @@ compile_statement(ASTNode * ast, int *instr_count)
         compile_expression(ast -> left, instructions, instr_count);
         emit(instructions, instr_count, STORE_NAME, ast -> value);
     }
+    else if (ast -> type == TOKEN_DIS) {
+        compile_expression(ast -> left, instructions, instr_count);
+        emit(instructions, instr_count, STK_DIS, ast -> value);
+    }
 
     return instructions;
 }

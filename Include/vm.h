@@ -9,7 +9,8 @@ typedef enum {
     LOAD_NAME,
     STORE_NAME,
     BINARY_ADD,
-    BINARY_SUB
+    BINARY_SUB,
+    STK_DIS,
 } OpCode;
 
 typedef struct {

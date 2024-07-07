@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 void test_tokenize() {
-    const char* source = "let x = 5 + 3 - 2;";
+    const char* source = "let x = 5 + 3 - 2; dis x;";
     Token* tokens = tokenize(source);
 
     assert(tokens[0].type == TOKEN_LET);
@@ -16,7 +16,10 @@ void test_tokenize() {
     assert(tokens[6].type == TOKEN_MINUS);
     assert(tokens[7].type == TOKEN_INT);
     assert(tokens[8].type == TOKEN_SEMICOLON);
-    assert(tokens[9].type == TOKEN_EOF);
+    assert(tokens[9].type == TOKEN_DIS);
+    assert(tokens[10].type == TOKEN_IDENTIFIER);
+    assert(tokens[11].type == TOKEN_SEMICOLON);
+    assert(tokens[12].type == TOKEN_EOF);
 
     int i = 0;
 //    for (; tokens[i].type != TOKEN_EOF; i++) {

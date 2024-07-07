@@ -76,7 +76,8 @@ parse_statement()
         ASTNode* node = new_ast_node(TOKEN_LET, identifier->value);
         node->left = expr;
         return node;
-    } else if (token->type == TOKEN_IDENTIFIER) {
+    }
+    else if (token->type == TOKEN_IDENTIFIER) {
         Token* identifier = token;
         if (consume()->type != TOKEN_ASSIGN) {
             fprintf(stderr, "Expected '=' after identifier\n");
@@ -90,7 +91,18 @@ parse_statement()
         ASTNode* node = new_ast_node(TOKEN_ASSIGN, identifier->value);
         node->left = expr;
         return node;
-    } else {
+    }
+    else if (token->type == TOKEN_DIS){
+        ASTNode * expr = parse_expression();
+        ASTNode * node = new_ast_node(TOKEN_DIS, NULL);
+        if (consume()->type != TOKEN_SEMICOLON) {
+            fprintf(stderr, "Expected ';' at end of statement\n");
+            exit(1);
+        }
+        node -> left = expr;
+        return node;
+    }
+    else {
         fprintf(stderr, "Unexpected token: %s\n", token->value);
         exit(1);
     }
